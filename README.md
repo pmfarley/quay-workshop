@@ -20,7 +20,7 @@ ___
 ## Instructor Notes
 This workshop can be run on any OpenShift 4.x cluster with Quay 3.x deployed. It can also be done on a Quay instance deployed in HA on virtual machines, although the preferred architecture is Quay on OCP 4.x. You can deploy on top of a vanilla OCP 4.x cluster in RHPDS
 
-To run this workshop in homeroom. Please login to your Openshift via the CLI
+To run this workshop in homeroom. Please login to your OpenShift cluster via the CLI:
 
 ```
 oc login
@@ -36,11 +36,11 @@ Deploy the homeroom spawner.
 
 ```
 oc process -f \
-    https://raw.githubusercontent.com/afouladi7/quay-workshop/master/templates/hosted-workshop-production.json \
+    https://raw.githubusercontent.com/pmfarley/quay-workshop/master/templates/hosted-workshop-production.json \
     -p SPAWNER_NAMESPACE=homeroom \
-    -p CLUSTER_SUBDOMAIN={{ your_cluster_url }} \
+    -p CLUSTER_SUBDOMAIN=<your_cluster_url> \
     -p WORKSHOP_NAME=quay-workshop \
-    -p CONSOLE_IMAGE=quay.io/openshift/origin-console:4.9 \
+    -p CONSOLE_IMAGE=quay.io/openshift/origin-console:4.11 \
     -p WORKSHOP_IMAGE=quay.io/redhatgov/quay-workshop:latest \
     -p CUSTOM_TAB_1=Webhooks=https://webhook.site | oc apply -n homeroom -f -  
 ```
