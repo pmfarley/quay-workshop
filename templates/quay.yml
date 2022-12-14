@@ -48,7 +48,7 @@ metadata:
   name: quay-operator
   namespace: quay
 spec:
-  channel: quay-v3.3
+  channel: stable-3.7
   installPlanApproval: Automatic
   name: quay-operator
   source: redhat-operators
